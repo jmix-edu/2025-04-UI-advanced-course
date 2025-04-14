@@ -34,6 +34,7 @@
                 <actions>
                     <action id="entityLookup" type="entity_lookup"/>
                     <action id="entityClear" type="entity_clear"/>
+                    <action id="action" type="entity_open" icon="GLASS"/>
                 </actions>
             </entityPicker>
             <select id="statusField" property="status"/>

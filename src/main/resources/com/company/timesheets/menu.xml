@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
-    <menu id="application" title="msg://com.company.timesheets/menu.application.title" opened="true">
-        <item view="ts_TaskType.list" title="msg://com.company.timesheets.view.tasktype/taskTypeListView.title"/>
-        <item view="ts_ProjectRole.list" title="msg://com.company.timesheets.view.projectrole/projectRoleListView.title"/>
+    <menu opened="true" id="timesheets" description="msg://com.company.timesheets/menu_config.timesheets.description"
+          title="msg://com.company.timesheets/menu_config.timesheets.title">
+        <item view="ts_TimeEntry.my"
+              title="msg://com.company.timesheets.view.mytimeentrieslist/myTimeEntriesListView.title"/>
+        <item view="ts_Task.my" description="msg://com.company.timesheets/menu_config.ts_Task.my.description"
+              title="msg://com.company.timesheets/menu_config.ts_Task.my.title"/>
+    </menu>
+    <menu opened="true" id="projects" description="msg://com.company.timesheets/menu_config.projects.description"
+          title="msg://com.company.timesheets/menu_config.projects.title">
         <item view="ts_Client.list" title="msg://com.company.timesheets.view.client/clientListView.title"/>
         <item view="ts_Project.list" title="msg://com.company.timesheets.view.project/projectListView.title"/>
         <item view="ts_TimeEntry.list" title="msg://com.company.timesheets.view.timeentry/timeEntryListView.title"/>
-        <item view="ts_User.list" title="msg://com.company.timesheets.view.user/UserListView.title"/>
-        <item view="ts_TimeEntry.my"
-              title="msg://com.company.timesheets.view.mytimeentrieslist/myTimeEntriesListView.title"/>
     </menu>
-
+    <menu id="settings" description="msg://com.company.timesheets/menu_config.settings.description"
+          title="msg://com.company.timesheets/menu_config.settings.title">
+        <item view="ts_TaskType.list" title="msg://com.company.timesheets.view.tasktype/taskTypeListView.title"/>
+        <item view="ts_ProjectRole.list"
+              title="msg://com.company.timesheets.view.projectrole/projectRoleListView.title"/>
+    </menu>
+    <menu opened="true" id="administration" title="msg://com.company.timesheets/menu.application.title">
+        <item view="ts_User.list" title="msg://com.company.timesheets.view.user/UserListView.title"/>
+    </menu>
 </menu-config>
