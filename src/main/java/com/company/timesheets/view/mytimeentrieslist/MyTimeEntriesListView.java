@@ -4,10 +4,12 @@ package com.company.timesheets.view.mytimeentrieslist;
 import com.company.timesheets.app.TimeEntrySupport;
 import com.company.timesheets.entity.TimeEntry;
 import com.company.timesheets.view.main.MainView;
+import com.vaadin.flow.component.grid.contextmenu.GridMenuItem;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.component.grid.DataGrid;
 import io.jmix.flowui.kit.action.ActionPerformedEvent;
+import io.jmix.flowui.model.CollectionContainer;
 import io.jmix.flowui.view.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,6 +24,10 @@ public class MyTimeEntriesListView extends StandardView {
     private TimeEntrySupport timeEntrySupport;
     @Autowired
     private DialogWindows dialogWindows;
+    @ViewComponent
+    private CollectionContainer<TimeEntry> timeEntriesDc;
+    @ViewComponent
+    private GridMenuItem<Object> editIntercepted;
 
     @Subscribe("timeEntriesDataGrid.copy")
     public void onTimeEntriesDataGridCopy(final ActionPerformedEvent event) {
@@ -35,5 +41,16 @@ public class MyTimeEntriesListView extends StandardView {
         dialogWindows.detail(timeEntriesDataGrid)
                 .newEntity(copied)
                 .open();
+    }
+
+    @Install(to = "contextMenu", subject = "dynamicContentHandler")
+    private boolean contextMenuDynamicContentHandler(final TimeEntry timeEntry) {
+       if (timeEntry == null) {
+           return false;
+       }
+
+       timeEntriesDataGrid.select(timeEntry);
+
+        return true;
     }
 }

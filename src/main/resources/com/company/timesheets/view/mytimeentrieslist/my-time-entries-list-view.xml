@@ -13,6 +13,11 @@
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+        <settings auto="true"/>
     </facets>
     <layout>
         <genericFilter id="genericFilter"
@@ -31,7 +36,12 @@
                   minWidth="10em"
                   width="100%"
                   columnReorderingAllowed="true">
-            <actions>
+            <contextMenu id="contextMenu">
+                <item action="timeEntriesDataGrid.create" icon="PLUS"/>
+                <item id="editIntercepted" action="timeEntriesDataGrid.edit" icon="PENCIL"/>
+                <item id="removeIntercepted" action="timeEntriesDataGrid.remove" icon="TRASH"/>
+            </contextMenu>
+            <actions showInContextMenuEnabled="false">
                 <action id="create" type="list_create"/>
                 <action id="edit" type="list_edit"/>
                 <action id="remove" type="list_remove"/>
@@ -44,7 +54,7 @@
                 <column property="status" autoWidth="true" flexGrow="0"/>
                 <column property="description" flexGrow="2"/>
                 <column property="rejectionReason" flexGrow="2"/>
-<!--                <column property="task.project.client.name" header="msg://com.company.timesheets.entity/Project.client"/>-->
+                <!--                <column property="task.project.client.name" header="msg://com.company.timesheets.entity/Project.client"/>-->
             </columns>
         </dataGrid>
 
