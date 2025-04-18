@@ -24,5 +24,7 @@
     </menu>
     <menu opened="true" id="administration" title="msg://com.company.timesheets/menu.application.title">
         <item view="ts_User.list" title="msg://com.company.timesheets.view.user/UserListView.title"/>
+        <item view="ts_SettingsCleaningView"
+              title="msg://com.company.timesheets.view.settingscleaning/settingsCleaningView.title"/>
     </menu>
 </menu-config>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://settingsCleaningView.title">
+    <data>
+        <collection id="userSettingsItemsDc" class="io.jmix.flowuidata.entity.UserSettingsItem">
+            <loader id="userSettingsItemsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from flowui_UserSettingsItem e where e.username = :current_user_username]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="refreshBtn" action="userSettingsItemsDataGrid.refresh"/>
+            <button id="removeBtn" action="userSettingsItemsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="userSettingsItemsDl"/>
+        </hbox>
+        <dataGrid id="userSettingsItemsDataGrid" dataContainer="userSettingsItemsDc"
+                  selectionMode="MULTI"
+                  minWidth="100px" width="100%">
+            <actions>
+                <action id="refresh" type="list_refresh"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns>
+                <column property="key"/>
+                <column property="value"/>
+            </columns>
+        </dataGrid>
+    </layout>
+</view>
