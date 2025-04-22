@@ -46,7 +46,7 @@
                   width="100%"
                   minHeight="20em"
                   dataContainer="tasksDc"
-                  columnReorderingAllowed="true">
+                  columnReorderingAllowed="true" themeNames="">
             <actions>
                 <action id="read" type="list_read"/>
                 <action id="createTimeEntry"

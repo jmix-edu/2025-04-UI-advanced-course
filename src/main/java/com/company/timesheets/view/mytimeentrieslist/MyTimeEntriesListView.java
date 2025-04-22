@@ -5,7 +5,11 @@ import com.company.timesheets.app.TimeEntrySupport;
 import com.company.timesheets.entity.TimeEntry;
 import com.company.timesheets.view.main.MainView;
 import com.vaadin.flow.component.grid.contextmenu.GridMenuItem;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
+import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.router.Route;
+import io.jmix.core.MetadataTools;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.component.grid.DataGrid;
 import io.jmix.flowui.kit.action.ActionPerformedEvent;
@@ -52,5 +56,25 @@ public class MyTimeEntriesListView extends StandardView {
        timeEntriesDataGrid.select(timeEntry);
 
         return true;
+    }
+
+
+    @Autowired
+    private MetadataTools metadataTools;
+
+    @Supply(to = "timeEntriesDataGrid.status", subject = "renderer")
+    private Renderer<TimeEntry> timeEntriesDataGridStatusRenderer() {
+
+        return new ComponentRenderer<>(Span::new, (span, timeEntry) -> {
+            String theme = switch (timeEntry.getStatus()){
+                case NEW -> "";
+                case APPROVED -> "success";
+                case REJECTED -> "error";
+                case CLOSED -> "contrast";
+            };
+
+            span.getElement().setAttribute("theme", "badge " + theme);
+            span.setText(metadataTools.format(timeEntry.getStatus()));
+        });
     }
 }

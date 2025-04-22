@@ -49,8 +49,10 @@
         <action id="saveAction" type="detail_save"/>
         <action id="closeAction" type="detail_close"/>
     </actions>
-    <layout>
-        <tabSheet id="tabSheet" width="100%">
+    <layout expand="tabSheet"
+            padding="false"
+    alignItems="STRETCH">
+        <tabSheet id="tabSheet" css="overflow: auto">
             <tab id="formTab" label="msg://com.company.timesheets.entity/Project">
                 <formLayout id="form" dataContainer="projectDc">
                     <textField id="nameField" property="name"/>
@@ -120,8 +122,8 @@
                 </vbox>
             </tab>
         </tabSheet>
-
-        <hbox id="detailActions">
+        <hbox id="detailActions"
+              classNames="py-s px-m bg-contrast-10">
             <button id="saveAndCloseBtn" action="saveCloseAction"/>
             <button id="SaveBtn" action="saveAction"/>
             <button id="closeBtn" action="closeAction"/>

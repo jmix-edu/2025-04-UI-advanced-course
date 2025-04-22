@@ -53,7 +53,7 @@
         <details id="contactInfoDetails"
                  summaryText="msg://com.company.timesheets.entity/Client.contactInformation"
                  width="100%"
-                 opened="true">
+                 opened="true" themeNames="non-collapsible bordered summary-filled">
             <formLayout dataContainer="contactInformationDc">
                 <responsiveSteps>
                     <responsiveStep minWidth="0" columns="1"/>
@@ -75,7 +75,7 @@
                     </prefix>
                 </textField>
                 <textArea id="addressField" dataContainer="contactInformationDc" property="address"
-                          height="9.5em" colspan="3">
+                          height="9.5em" colspan="3" themeNames="align-center">
                     <prefix>
                         <icon icon="MAP_MARKER"/>
                     </prefix>

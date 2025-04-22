@@ -31,8 +31,8 @@
         <action id="discardAction" type="lookup_discard"/>
     </actions>
     <layout padding="false">
-        <vbox id="layoutWrapper" classNames="master-detail-layout" height="100%">
-            <vbox id="listLayout" height="100%">
+        <vbox id="layoutWrapper" padding="false" classNames="master-detail-layout" height="100%">
+            <vbox id="listLayout" height="100%" css="overflow: auto">
                 <genericFilter id="genericFilter"
                                dataLoader="tasksDl">
                     <properties include=".*"/>
@@ -65,7 +65,7 @@
                     <button id="discardButton" action="discardAction"/>
                 </hbox>
             </vbox>
-            <vbox id="detailsLayout" height="100%">
+            <vbox id="detailsLayout" height="100%" expand="form">
                 <formLayout id="form" dataContainer="taskDc">
                     <responsiveSteps>
                         <responsiveStep minWidth="0" columns="1"/>
