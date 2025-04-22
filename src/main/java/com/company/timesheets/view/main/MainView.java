@@ -29,6 +29,7 @@ public class MainView extends StandardMainView {
 
     @Subscribe
     public void onInit(final InitEvent event) {
+        getContent().addClassName("bgImage");
         updateRejectedTimeEntries();
     }
 

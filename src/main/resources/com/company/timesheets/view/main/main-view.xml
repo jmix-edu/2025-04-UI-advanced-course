@@ -6,7 +6,7 @@
     </actions>
     <appLayout>
         <navigationBar>
-            <header id="header" classNames="jmix-main-view-header">
+            <header id="header" classNames="jmix-main-view-header bgImage">
                 <drawerToggle id="drawerToggle"
                               classNames="jmix-main-view-drawer-toggle"
                               themeNames="contrast"

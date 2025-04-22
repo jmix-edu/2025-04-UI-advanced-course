@@ -60,6 +60,7 @@ public class LoginView extends StandardView implements LocaleChangeObserver {
 
     @Subscribe
     public void onInit(final InitEvent event) {
+        getContent().addClassName("bgImage");
         initLocales();
         initDefaultCredentials();
     }
